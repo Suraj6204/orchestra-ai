@@ -36,13 +36,12 @@ export const login = async (req, res) => {
             planExpiresAt: user.planExpiresAt
         }), "EX", 7 * 24 * 60 * 60)
 
-
-
-
         res.cookie("session", sessionId, {
             httpOnly: true,
-            secure: false,
-            sameSite: "strict",
+            secure: true,
+            sameSite: "none",
+            // secure: false,
+            // sameSite: "strict",
             maxAge: 7 * 24 * 60 * 60 * 1000
         })
 

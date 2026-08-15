@@ -17,15 +17,17 @@ app.use(cors({
 }))
 app.use(morgan("dev"))
 app.use(cookieParser())
+
 app.use("/api/auth",proxy(process.env.AUTH_SERVICE))
 app.use("/api/chat",protect,proxyWithHeader(process.env.CHAT_SERVICE))
 app.use("/api/agent",protect,proxyWithHeader(process.env.AGENT_SERVICE))
 app.use("/api/billing",protect,proxyWithHeader(process.env.BILLING_SERVICE))
 app.get("/api/me",protect,getCurrentUser)
+
 app.get("/",(req,res)=>{
     res.json({message:"hello from gateway v5"})
 })
 
-app.listen(port,()=>{
+app.listen(port,"0.0.0.0",()=>{
     console.log(`gateway started at ${port}`)
 })
