@@ -13,7 +13,7 @@ app.get("/",(req,res)=>{
     res.json({message:"hello from auth"})
 })
 
-app.listen(port,()=>{
+app.listen(port,"0.0.0.0",()=>{
     console.log(`auth started at ${port}`)
     connectDb()
 })

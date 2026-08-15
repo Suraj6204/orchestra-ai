@@ -14,7 +14,7 @@ app.get("/",(req,res)=>{
     res.json({message:"hello from chat"})
 })
 
-app.listen(port,()=>{
+app.listen(port,"0.0.0.0",()=>{
     console.log(`chat started at ${port}`)
     connectDb()
 })
