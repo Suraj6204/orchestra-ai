@@ -16,4 +16,4 @@ WORKDIR /app/services/billing
 
 EXPOSE 8004
 
-CMD [ "npm","start" ]
+CMD [ "node","index.js" ]
